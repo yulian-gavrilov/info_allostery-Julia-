@@ -15,8 +15,20 @@ end
 
 #path="/Users/yulian/MY_DATA/LU/TECH/gr/info_allostery/dex_f602s/"
 path="."
-t = mdload("$path/cort_wt_CA_cortC9_dt1_second100ns.pdb")
-t = mdload("$path/cort_wt_CA_cortC9_dt1_100ns.dcd",top=t)
+pdb=ARGS[1]
+dcd=ARGS[2]
+paths_file=ARGS[3]
+
+if size(ARGS,1) != 3
+        println("three inputs required: pdb xtc paths_file")
+end
+
+
+#t = mdload("$path/cort_wt_CA_cortC9_dt1_second100ns.pdb")
+#t = mdload("$path/cort_wt_CA_cortC9_dt1_100ns.dcd",top=t)
+
+t = mdload("$path/$pdb")
+t = mdload("$path/$dcd",top=t)
 
 ########################################
 function read_simply_formatted_paths_file(path_to_file)
@@ -55,7 +67,7 @@ end
 
 ########################################
 
-all_paths, all_paths_length = read_simply_formatted_paths_file("$path/simply_formatted_paths_short.txt")
+all_paths, all_paths_length = read_simply_formatted_paths_file("$path/$paths_file")
 
 ########################################
 
