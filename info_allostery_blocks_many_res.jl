@@ -142,7 +142,7 @@ end
 function get_time_indep_MI(dot_prod_in_frames,denom1,denom2)
     
     numerator = mean(dot_prod_in_frames)^2
-    return -0.5*log(abs(1-numerator/(mean(denom1)*mean(denom2))))
+    return -0.5*log2(abs(1-numerator/(mean(denom1)*mean(denom2))))
     
 end
 
@@ -188,7 +188,7 @@ function get_info_transfer(t,dr;res1,res2,tau,step)
     
     denominator1_All = (denominator1-denominator2)*denominator3
     
-    time_depended_MI = -0.5*log(abs(1-numerator_All/denominator1_All))
+    time_depended_MI = -0.5*log2(abs(1-numerator_All/denominator1_All))
     #print("time_depended_MI: ", round(time_depended_MI,3))
     
     Tij = time_depended_MI-time_indep_MI

@@ -89,8 +89,8 @@ def dot_product_res_res_with_tau_shift(u1,dr,res1,res2,tau,step):
 
 def get_time_indep_MI(dot_prod_in_frames,denom1,denom2):
     numerator = np.mean(dot_prod_in_frames)**2
-    #return -0.5*np.log(np.abs(1-numerator/np.dot(denom1,denom2)))
-    return -0.5*np.log(np.abs(1-numerator/(np.mean(denom1)*np.mean(denom2))))
+    #return -0.5*np.log2(np.abs(1-numerator/np.dot(denom1,denom2)))
+    return -0.5*np.log2(np.abs(1-numerator/(np.mean(denom1)*np.mean(denom2))))
 
 
 ########################
@@ -135,7 +135,7 @@ def get_info_transfer(u1,dr,res1,res2,tau,step):
     
     denominator1_All = (denominator1-denominator2)*denominator3
     
-    time_depended_MI = -0.5*np.log(np.abs(1-numerator_All/denominator1_All))
+    time_depended_MI = -0.5*np.log2(np.abs(1-numerator_All/denominator1_All))
     #print("time_depended_MI: ", round(time_depended_MI,3))
     
     Tij = time_depended_MI-time_indep_MI
