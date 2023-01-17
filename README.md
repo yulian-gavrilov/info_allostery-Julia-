@@ -1,4 +1,4 @@
-# info_allostery
+# info_allostery (Julia)
 Julia and python scripts for information allostery
 
 Based on this paper (no code is available in the publication):
